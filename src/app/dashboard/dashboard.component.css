@@ -1,0 +1,47 @@
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    display: block;
+}
+
+.chart-container {
+    margin: 40px 0;
+}
+table{
+    width: -webkit-fill-available;
+}
+th.mat-header-cell{
+    text-align: center;
+}
+th{
+    background-color: indianred;
+    color: white;
+    font-size: medium; 
+
+}
+td.mat-cell{
+    text-align: center;
+    padding: 5px;
+}
+.row{
+    display: flex;
+    text-align: center;
+    /* justify-content: space-between; */
+}
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #444;
+}
+
+canvas {
+    max-width: 100%;
+    height: auto;
+}

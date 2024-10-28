@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <mat-form-field appearance="standard">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8" style="padding: 0px;">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle ID </th>
+          <td mat-cell *matCellDef="let row"> {{row['DOL Vehicle ID']}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="make">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Make </th>
+          <td mat-cell *matCellDef="let row"> {{row['Make']}}% </td>
+        </ng-container>
+
+        <ng-container matColumnDef="model">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Model </th>
+          <td mat-cell *matCellDef="let row"> {{row['Model']}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="year">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Model Year </th>
+          <td mat-cell *matCellDef="let row"> {{row['Model Year']}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle Type </th>
+          <td mat-cell *matCellDef="let row"> {{row['Electric Vehicle Type']}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="utility">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Electric Utility </th>
+          <td mat-cell *matCellDef="let row"> {{row['Electric Utility']}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="city">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>City </th>
+          <td mat-cell *matCellDef="let row"> {{row['City']}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of Vehicle"></mat-paginator>
+    </div>
+
+  </div>
+  <div class="row mt-5 mb-5">
+    <div class="col-6 ">
+      <h2>EV Make Distribution</h2>
+      <div class="card p-2">
+        <canvas id="makeChart"></canvas>
+      </div>
+    </div>
+    <div class="col-6">
+      <h2>Total Electric Range by Model</h2>
+      <div class="card">
+        <canvas id="rangeChart"></canvas>
+      </div>
+      <h2>Vehicles by Model Year</h2>
+      <div class="card">
+        <canvas id="yearChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
